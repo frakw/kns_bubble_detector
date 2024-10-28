@@ -19,6 +19,21 @@ The repository includes:
 ![Mask Extraction Example](assets/sample.gif)
 
 
+## [👣 2024 updated] Environment package (conda-pack)
+Because the model was released long ago, some packages are incompatible.
+
+Thanks to [conda-pack](https://conda.github.io/conda-pack/), we released our packages which are compatible with the model.
+
+The package is available in here [link](https://drive.google.com/file/d/15rp_MNpDyCmpegIoHUrZq6170-qqWraP/view?usp=drive_link).
+
+1. Download and unzip the package.
+2. Download this repo under the unzipped folder. ex) `my_env/bubble/bubble.py`
+3. Activate the environment. `source my_env/bin/activate`
+4. To deactivate `source my_env/bin/deactivate`
+
+** The package was tested under Linux OS.
+
+
 ## Tested environment
 This code was tested on the below environment.
 
