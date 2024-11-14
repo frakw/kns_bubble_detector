@@ -46,6 +46,7 @@ import matplotlib.colors as mcolors
 from mrcnn import visualize
 import tensorflow as tf
 import datetime
+from solve_cudnn_error import *
 
 # Root directory of the project
 ROOT_DIR = os.path.abspath("../")
@@ -509,7 +510,7 @@ def splash(model, image_path=None, video_path=None, result_path=RESULTS_DIR):
 
 if __name__ == '__main__':
     import argparse
-
+    solve_cudnn_error()
     # Parse command line arguments
     parser = argparse.ArgumentParser(
         description='Train Mask R-CNN to detect bubbles.')
