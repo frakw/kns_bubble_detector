@@ -381,15 +381,28 @@ def detect(model, image_path=None, result_path=RESULTS_DIR):
         
         for file in files:
             # make sure file is an image
-            if file.endswith(('.jpg', '.png', '.tif')): 
+            if file.endswith(('.jpg', '.png', '.tif','.bmp')): 
                 img_path = os.path.join(IMAGE_PATH, file)
          
                 # Read image
                 image = skimage.io.imread(img_path)
-        
+
+                print('image.shape:')
+                print(image.shape)
+
+                if image.shape[2] == 4:
+                    image = image[:, :, :3]
+
+                print('image.shape:')
+                print(image.shape)
+
                 # 3 channel jpg?? 
                 if image.ndim == 2:
                     image = cv2.merge((image,image,image))
+                
+                if image.ndim == 4:
+                    print('4 channel image')
+                    #image = cv2.merge((image,image,image))
         
                 # Detect objects
                 a = datetime.datetime.now()
@@ -402,6 +415,12 @@ def detect(model, image_path=None, result_path=RESULTS_DIR):
                 img_path_results = os.path.join(IMAGE_PATH_results, file.rsplit('.')[0])
                 if not os.path.exists(img_path_results):
                     os.makedirs(img_path_results)
+                
+                # Color splash
+                splash = color_splash(image, r['masks'])
+                # Save output
+                file_name = "splash_"+os.path.basename(file).rsplit('.')[0]+".png"
+                skimage.io.imsave(os.path.join(img_path_results, file_name), splash)
                 
                 # Save PNG masks & calculating bubble information
                 props_list = [["x ", "y ", "Orientation ", "Axis_major_length ", "Axis_minor_length ", "Area "]]

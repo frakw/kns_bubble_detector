@@ -1,4 +1,5 @@
 splash_results/
+detect_results/
 # Data files and directories common in repo root
 datasets/
 logs/

@@ -1,0 +1,2 @@
+python ./bubble/bubble.py detect --weights=./weights/mask_rcnn_bubble.h5 --image=./kns_bubble/sample --folder_num_start=0 --folder_num=11 --results=./splash_results --confidence=0.01
+python ./bubble/bubble.py detect --weights=./weights/mask_rcnn_bubble.h5 --image=./kns_bubble/sample --folder_num_start=0 --folder_num=11 --results=./detect_results --confidence=0.01
